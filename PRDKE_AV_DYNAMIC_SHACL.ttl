@@ -1,0 +1,171 @@
+@prefix : 		<http://jku.at/prdke2020/0.1/> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: 	<http://www.w3.org/ns/shacl#> .
+@prefix dkeav: 	<http://jku.at/prdke2020/aviation/flights#> .
+
+#################################################################
+
+# Flight shapes
+dkeav:FlightShape
+		a sh:NodeShape ;
+		sh:targetClass dkeav:Flight ;
+		
+		sh:property [
+			sh:path dkeav:state ;
+			sh:class dkeav:FlightState ;
+			sh:nodeKind sh:IRI ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:icao24 ;
+			sh:datatype xsd:string ;
+			sh:pattern ".{6]" ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:callsign ;
+			sh:datatype xsd:string ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:origin_country ;
+			sh:datatype xsd:string ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:closed true ;
+		sh:ignoredProperties ( rdf:type ) .
+
+#################################################################
+
+# FlightState shapes
+
+dkeav:FlightStateShape
+		a sh:NodeShape ;
+		sh:targetClass dkeav:FlightState ;
+		
+		sh:property [
+			sh:path dkeav:time ;
+			sh:class dkeav:Time ;
+			sh:nodeKind sh:IRI ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:time_position ;
+			sh:datatype xsd:int ;
+			sh:maxCount 1
+		] ;
+		
+		sh:property [
+			sh:path dkeav:last_contact ;
+			sh:datatype xsd:int ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:velocity ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:true_track ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:vertical_rate ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:sensors ;
+			sh:datatype xsd:float ; 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:baro_altitude ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:geo_altitude ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:latitude ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:longitude ;
+			sh:datatype xsd:float ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:on_ground ;
+			sh:datatype xsd:boolean ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:spi ;
+			sh:datatype xsd:boolean ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:position_source ;
+			sh:datatype xsd:int ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:property [
+			sh:path dkeav:squawk ;
+			sh:datatype xsd:string ;
+			sh:maxCount 1 
+		] ;
+		
+		sh:closed true ;
+		sh:ignoredProperties ( rdf:type ) .
+
+#################################################################
+
+# Time shapes
+
+dkeav:TimeShape
+		a sh:NodeShape ;
+		sh:targetClass dkeav:Time ;
+		
+		sh:property [
+			sh:path dkeav:timeValue ;
+			sh:class dkeav:Time ;
+			sh:nodeKind sh:IRI ;
+			sh:maxCount 1 ;
+			sh:minCount 1 
+		] ;
+		
+		sh:closed true ;
+		sh:ignoredProperties ( rdf:type ) .
+
+#################################################################

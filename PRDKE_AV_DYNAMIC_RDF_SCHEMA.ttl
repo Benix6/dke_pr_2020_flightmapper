@@ -1,0 +1,120 @@
+@prefix : 		<http://jku.at/prdke2020/0.1/> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix dkeav: 	<http://jku.at/prdke2020/aviation/flights#> .
+
+#################################################################
+
+# Classes
+
+dkeav:Flight rdf:type rdfs:Class; 
+          rdfs:label "Flight" . 
+dkeav:FlightState rdf:type rdfs:Class; 
+          rdfs:label "FlightState" . 
+dkeav:Time rdf:type rdfs:Class; 
+          rdfs:label "Time" . 
+
+#################################################################
+
+#  Properties
+#  --------------------------- Property 0------------------------- 
+dkeav:time_position rdf:type rdf:Property ;
+              rdfs:label "time_position"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:integer . 
+#  --------------------------- Property 1------------------------- 
+dkeav:callsign rdf:type rdf:Property ;
+              rdfs:label "callsign"; 
+              rdfs:domain dkeav:Flight;
+              rdfs:range xsd:string . 
+#  --------------------------- Property 2------------------------- 
+dkeav:icao24 rdf:type rdf:Property ;
+              rdfs:label "icao24"; 
+              rdfs:domain dkeav:Flight;
+              rdfs:range xsd:string . 
+#  --------------------------- Property 3------------------------- 
+dkeav:origin_country rdf:type rdf:Property ;
+              rdfs:label "origin_country"; 
+              rdfs:domain dkeav:Flight;
+              rdfs:range xsd:string . 
+#  --------------------------- Property 4------------------------- 
+dkeav:last_contact rdf:type rdf:Property ;
+              rdfs:label "last_contact"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:integer . 
+#  --------------------------- Property 5------------------------- 
+dkeav:longitude rdf:type rdf:Property ;
+              rdfs:label "longitude"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 6------------------------- 
+dkeav:latitude rdf:type rdf:Property ;
+              rdfs:label "latitude"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 7------------------------- 
+dkeav:baro_altitude rdf:type rdf:Property ;
+              rdfs:label "baro_altitude"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 8------------------------- 
+dkeav:on_ground rdf:type rdf:Property ;
+              rdfs:label "on_ground"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:boolean . 
+#  --------------------------- Property 9------------------------- 
+dkeav:velocity rdf:type rdf:Property ;
+              rdfs:label "velocity"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 10------------------------- 
+dkeav:true_track rdf:type rdf:Property ;
+              rdfs:label "true_track"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 11------------------------- 
+dkeav:vertical_rate rdf:type rdf:Property ;
+              rdfs:label "vertical_rate"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 12------------------------- 
+dkeav:sensors rdf:type rdf:Property ;
+              rdfs:label "sensors"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 13------------------------- 
+dkeav:geo_altitude rdf:type rdf:Property ;
+              rdfs:label "geo_altitude"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:float . 
+#  --------------------------- Property 14------------------------- 
+dkeav:squawk rdf:type rdf:Property ;
+              rdfs:label "squawk"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:string . 
+#  --------------------------- Property 15------------------------- 
+dkeav:spi rdf:type rdf:Property ;
+              rdfs:label "spi"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:boolean . 
+#  --------------------------- Property 16------------------------- 
+dkeav:position_source rdf:type rdf:Property ;
+              rdfs:label "position_source"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range xsd:integer . 
+#  --------------------------- Property 17------------------------- 
+dkeav:time rdf:type rdf:Property ;
+              rdfs:label "time"; 
+              rdfs:domain dkeav:FlightState;
+              rdfs:range dkeav:Time . 
+#  --------------------------- Property 18------------------------- 
+dkeav:timeValue rdf:type rdf:Property ;
+              rdfs:label "timeValue"; 
+              rdfs:domain dkeav:Time;
+              rdfs:range xsd:int . 
+#  --------------------------- Property 19------------------------- 
+dkeav:state rdf:type rdf:Property ;
+              rdfs:label "state"; 
+              rdfs:domain dkeav:Flight;
+              rdfs:range dkeav:FlightState . 
